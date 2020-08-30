@@ -5,6 +5,7 @@ import Todo from './Todo'
 class TodosContainer extends Component {
 
   renderTodos = () => {
+    console.log(this.props.todos);
     return this.props.todos.map((todo) => <Todo delete={this.props.delete} key={todo.id} text={todo} />)
   }
 
@@ -25,7 +26,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    delete: todoText => dispatch({type: 'DELETE_TODO', payload: todoText})
+    delete: todo => dispatch({type: 'DELETE_TODO', payload: todo})
   }
 }
 
